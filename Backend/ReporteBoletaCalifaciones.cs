@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    internal class ReporteBoletaCalifaciones
+    public class ReporteBoletaCalifaciones
     {
+        public int IdBoletaCalificaciones {  get; set; }
+        public string FechaBoleta { get; set; }
+
     }
 }

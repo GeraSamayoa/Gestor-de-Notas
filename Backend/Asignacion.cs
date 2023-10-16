@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    internal class Asignacion
+    public class Asignacion
     {
+        public int IdAsignacion { get; set; }
+        public Estudiante IdNumeroCarne { get; set; } //Estudiante
+        public Docente IdDocente { get; set; }
+        public Seccion IdSeccion { get; set; }
+        public Ciclo IdCiclo { get; set; }
+        public Jornada IdJornada { get; set; }
+        public string FechaAsignacion { get; set; }
+        public Periodo IdPeriodo { get; set; }
+       /* public int IdCurso { get; set; }
+        public int IdCarrera { get; set; } */
+
+        
+
+         
     }
 }

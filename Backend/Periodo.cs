@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    public class Estudiante
+    public class Periodo
     {
     }
 }
