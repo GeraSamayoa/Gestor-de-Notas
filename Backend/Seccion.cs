@@ -8,5 +8,12 @@ namespace Backend
 {
     public class Seccion
     {
+        public int IdSeccion {  get; set; }
+        public char Estatus {  get; set; }
+
+        public Seccion(int IdSeccion, char Estatus) { 
+            this.IdSeccion = IdSeccion;
+            this.Estatus = Estatus;
+        }
     }
 }
