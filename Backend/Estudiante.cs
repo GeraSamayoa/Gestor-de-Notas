@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    public class Estudiante
+    public class Estudiante:Persona
     {
+          Console.WriteLine("Hola Prueba");  
     }
 }
