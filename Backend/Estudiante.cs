@@ -8,6 +8,6 @@ namespace Backend
 {
     public class Estudiante:Persona
     {
-        public string name;
+          Console.WriteLine("Hola Prueba");  
     }
 }
