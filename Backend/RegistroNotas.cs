@@ -19,7 +19,7 @@ namespace Backend
         public List<Curso> cursos { get; set; }
         public Periodo Periodos { get; set; }
         public List<Periodo> periodos { get; set; }
-        public Estudiante Estudiantes { get; set; }
+        public Estudiante IdEstudiantes { get; set; }
         public List<Estudiante> estudiantes { get; set; }
         public Asignacion IdAsignaciones { get; set; }
         public List<Asignacion> asignaciones { get; set; }
@@ -73,12 +73,34 @@ namespace Backend
             NotaTotal = notaTotal;
         }
 
+
+
         // Método para agregar registro de notas
         public void AgregarRegistroNotas(RegistroNotas registroNotas)
         {
             // Realiza validaciones antes de agregar
             if (registroNotas.NotaAlumno >= 0 && registroNotas.NotaAlumno <= 100 && TipoDeNotas.Contains(registroNotas.TipoDeNotas))
             {
+                // Calcula la zona y la nota total
+                switch (registroNotas.TipoDeNotas)
+                {
+                    case "Primer Parcial":
+                        registroNotas.Zona = registroNotas.NotaAlumno;
+                        registroNotas.NotaTotal = registroNotas.Zona;
+                        break;
+                    case "Segundo Parcial":
+                        registroNotas.Zona += registroNotas.NotaAlumno;
+                        registroNotas.NotaTotal = registroNotas.Zona;
+                        break;
+                    case "Actividades":
+                        registroNotas.Zona += registroNotas.NotaAlumno;
+                        registroNotas.NotaTotal = registroNotas.Zona;
+                        break;
+                    default:
+                        throw new ArgumentException("Tipo de notas no válido.");
+                }
+
+                // Agrega el registro de notas
                 ListaRegistroNotas.Add(registroNotas);
             }
         }
