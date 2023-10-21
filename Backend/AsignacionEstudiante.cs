@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    public class Asignacion
+    public class AsignacionEstudiante
     {
  
 
-        public int IdAsignacion { get; set; }
+        public int IdAsignacionEstudiante { get; set; }
         public Estudiante IdNumeroCarne { get; set; } //Estudiante
         public List<Estudiante> estudiantes { get; set; }
         public Docente IdDocente { get; set; }
@@ -30,12 +30,10 @@ namespace Backend
         public Carrera IdCarrera { get; set; }
         public List<Carrera> carreras { get; set; }
 
-
-
         //Metodo constructor
-        public Asignacion(int idAsignacion, DateTime fechaAsignacion,string estado)
+        public AsignacionEstudiante(int idAsignacionEstudiante, DateTime fechaAsignacion,string estado)
         {
-            IdAsignacion = idAsignacion;
+            IdAsignacionEstudiante = idAsignacionEstudiante;
             estudiantes = new List<Estudiante>();
             carreras = new List<Carrera>();
             periodos = new List<Periodo>();
@@ -47,42 +45,28 @@ namespace Backend
             FechaAsignacion = fechaAsignacion;
             Estado = estado;
         }
-        //crear lista de asignaciones
-        public List<Asignacion> listaAsignaciones = new List<Asignacion>();
-        //metodo para agregar asignaciones
-        public void AgregarAsignacion(Asignacion asignacion)
+        //Lista de asignaciones
+        public List<AsignacionEstudiante> listaAsignacionesEstudiantes = new List<AsignacionEstudiante>();
+        //Metodo para agregar asignaciones
+        public void AgregarAsignacion(AsignacionEstudiante asignacionEstudiante)
         {
-            listaAsignaciones.Add(asignacion);
+            listaAsignacionesEstudiantes.Add(asignacionEstudiante);
         }
-        //metodo para eliminar asignaciones
-        public void EliminarAsignacion(Asignacion asignacion)
+        //Metodo para eliminar asignaciones
+        public void EliminarAsignacion(AsignacionEstudiante asignacionEstudiante)
         {
-            listaAsignaciones.Remove(asignacion);
+            listaAsignacionesEstudiantes.Remove(asignacionEstudiante);
         }
-        //metodo para modificar asignaciones
-        public void ModificarAsignacion(int indice, Asignacion asignacion)
+        //Metodo para modificar asignaciones
+        public void ModificarAsignacion(int indice, AsignacionEstudiante asignacionEstudiante)
         {
-            listaAsignaciones[indice] = asignacion;
+            listaAsignacionesEstudiantes[indice] = asignacionEstudiante;
         }
-        //metodo para mostrar asignaciones
-        public List<Asignacion> MostrarAsignacion()
+        //Metodo para mostrar asignaciones
+        public List<AsignacionEstudiante> MostrarAsignacion()
         {
-            return listaAsignaciones;
+            return listaAsignacionesEstudiantes;
         }
-        //metodo para buscar asignaciones
-        public int BuscarAsignacion(int idAsignacion)
-        {
-            int indice = 0;
-            foreach (Asignacion asignacion in listaAsignaciones)
-            {
-                if (asignacion.IdAsignacion == idAsignacion)
-                {
-                    return indice;
-                }
-                indice++;
-            }
-            return -1;
-        }
-
-    }
+        
 }
+    }

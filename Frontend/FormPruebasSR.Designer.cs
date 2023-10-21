@@ -108,7 +108,7 @@
             // cbxEstudianteRN
             // 
             this.cbxEstudianteRN.FormattingEnabled = true;
-            this.cbxEstudianteRN.Location = new System.Drawing.Point(115, 273);
+            this.cbxEstudianteRN.Location = new System.Drawing.Point(116, 58);
             this.cbxEstudianteRN.Name = "cbxEstudianteRN";
             this.cbxEstudianteRN.Size = new System.Drawing.Size(121, 24);
             this.cbxEstudianteRN.TabIndex = 3;
@@ -159,7 +159,7 @@
             // cbxCursoRN
             // 
             this.cbxCursoRN.FormattingEnabled = true;
-            this.cbxCursoRN.Location = new System.Drawing.Point(115, 230);
+            this.cbxCursoRN.Location = new System.Drawing.Point(115, 273);
             this.cbxCursoRN.Name = "cbxCursoRN";
             this.cbxCursoRN.Size = new System.Drawing.Size(121, 24);
             this.cbxCursoRN.TabIndex = 9;
@@ -236,7 +236,7 @@
             // cbxCarreraRN
             // 
             this.cbxCarreraRN.FormattingEnabled = true;
-            this.cbxCarreraRN.Location = new System.Drawing.Point(116, 58);
+            this.cbxCarreraRN.Location = new System.Drawing.Point(115, 101);
             this.cbxCarreraRN.Name = "cbxCarreraRN";
             this.cbxCarreraRN.Size = new System.Drawing.Size(121, 24);
             this.cbxCarreraRN.TabIndex = 10;
@@ -262,7 +262,7 @@
             // cbxCicloRN
             // 
             this.cbxCicloRN.FormattingEnabled = true;
-            this.cbxCicloRN.Location = new System.Drawing.Point(115, 143);
+            this.cbxCicloRN.Location = new System.Drawing.Point(115, 185);
             this.cbxCicloRN.Name = "cbxCicloRN";
             this.cbxCicloRN.Size = new System.Drawing.Size(121, 24);
             this.cbxCicloRN.TabIndex = 13;
@@ -270,7 +270,7 @@
             // cbxJornadaRN
             // 
             this.cbxJornadaRN.FormattingEnabled = true;
-            this.cbxJornadaRN.Location = new System.Drawing.Point(115, 101);
+            this.cbxJornadaRN.Location = new System.Drawing.Point(115, 138);
             this.cbxJornadaRN.Name = "cbxJornadaRN";
             this.cbxJornadaRN.Size = new System.Drawing.Size(121, 24);
             this.cbxJornadaRN.TabIndex = 14;
@@ -296,7 +296,7 @@
             // cbxEleccionIngresoNotaRN
             // 
             this.cbxEleccionIngresoNotaRN.FormattingEnabled = true;
-            this.cbxEleccionIngresoNotaRN.Location = new System.Drawing.Point(115, 327);
+            this.cbxEleccionIngresoNotaRN.Location = new System.Drawing.Point(115, 342);
             this.cbxEleccionIngresoNotaRN.Name = "cbxEleccionIngresoNotaRN";
             this.cbxEleccionIngresoNotaRN.Size = new System.Drawing.Size(121, 24);
             this.cbxEleccionIngresoNotaRN.TabIndex = 17;
@@ -313,7 +313,7 @@
             // cbxSeccionRN
             // 
             this.cbxSeccionRN.FormattingEnabled = true;
-            this.cbxSeccionRN.Location = new System.Drawing.Point(115, 188);
+            this.cbxSeccionRN.Location = new System.Drawing.Point(115, 230);
             this.cbxSeccionRN.Name = "cbxSeccionRN";
             this.cbxSeccionRN.Size = new System.Drawing.Size(121, 24);
             this.cbxSeccionRN.TabIndex = 19;

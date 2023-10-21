@@ -21,8 +21,8 @@ namespace Backend
         public List<Periodo> periodos { get; set; }
         public Estudiante IdEstudiantes { get; set; }
         public List<Estudiante> estudiantes { get; set; }
-        public Asignacion IdAsignaciones { get; set; }
-        public List<Asignacion> asignaciones { get; set; }
+        public AsignacionEstudiante IdAsignaciones { get; set; }
+        public List<AsignacionEstudiante> asignaciones { get; set; }
 
         public int IdNota { get; set; }
         public string TipoDeNotas { get; set; }
@@ -30,10 +30,10 @@ namespace Backend
         public int Zona { get; set; }
         public int NotaTotal { get; set; }
 
-        // Tipos de notas constantes
+        //Tipos de notas constantes
         public static List<string> tipoDeNotas = new List<string>() { "Primer Parcial", "Segundo Parcial", "Actividades", "Examen Final" };
 
-        // Lista global de notas
+        //Lista de notas
         public static List<RegistroNotas> ListaRegistroNotas = new List<RegistroNotas>();
 
         public RegistroNotas(int idNota, int notaAlumno, int zona, int notaTotal)
@@ -46,10 +46,10 @@ namespace Backend
             cursos = new List<Curso>();
             periodos = new List<Periodo>();
             estudiantes = new List<Estudiante>();
-            asignaciones = new List<Asignacion>();
+            asignaciones = new List<AsignacionEstudiante>();
             IdNota = idNota;
 
-            // Validar y asignar el tipo de notas
+            //Validar y asignar el tipo de notas
             if (tipoDeNotas.Contains(TipoDeNotas))
             {
                 this.TipoDeNotas = TipoDeNotas;
@@ -59,7 +59,7 @@ namespace Backend
                 throw new ArgumentException("Tipo de notas no válido.");
             }
 
-            // Validar las notas
+            //Validar las notas
             if (notaAlumno >= 0 && notaAlumno <= 100)
             {
                 NotaAlumno = notaAlumno;
@@ -74,67 +74,56 @@ namespace Backend
         }
 
 
-
-        // Método para agregar registro de notas
+        //Metodo para agregar registro de notas
         public void AgregarRegistroNotas(RegistroNotas registroNotas)
         {
-            // Realiza validaciones antes de agregar
-            if (registroNotas.NotaAlumno >= 0 && registroNotas.NotaAlumno <= 100 && TipoDeNotas.Contains(registroNotas.TipoDeNotas))
+            //Realiza validaciones antes de agregar
+            if (registroNotas.NotaAlumno < 0 || registroNotas.NotaAlumno > 100)
             {
-                // Calcula la zona y la nota total
-                switch (registroNotas.TipoDeNotas)
-                {
-                    case "Primer Parcial":
-                        registroNotas.Zona = registroNotas.NotaAlumno;
-                        registroNotas.NotaTotal = registroNotas.Zona;
-                        break;
-                    case "Segundo Parcial":
-                        registroNotas.Zona += registroNotas.NotaAlumno;
-                        registroNotas.NotaTotal = registroNotas.Zona;
-                        break;
-                    case "Actividades":
-                        registroNotas.Zona += registroNotas.NotaAlumno;
-                        registroNotas.NotaTotal = registroNotas.Zona;
-                        break;
-                    default:
-                        throw new ArgumentException("Tipo de notas no válido.");
-                }
-
-                // Agrega el registro de notas
-                ListaRegistroNotas.Add(registroNotas);
+                throw new ArgumentException("Nota de alumno no válida.");
             }
+            if (!tipoDeNotas.Contains(registroNotas.TipoDeNotas))
+            {
+                throw new ArgumentException("Tipo de notas no válido.");
+            }
+
+            //Calcula Zona y acumula las notas
+            switch (registroNotas.TipoDeNotas)
+            {
+                case "Primer Parcial":
+                    registroNotas.Zona = registroNotas.NotaAlumno;
+                    break;
+                case "Segundo Parcial":
+                    registroNotas.Zona += registroNotas.NotaAlumno;
+                    break;
+                case "Actividades":
+                    registroNotas.Zona += registroNotas.NotaAlumno;
+                    break;
+                case "Examen Final":
+                    registroNotas.NotaTotal = registroNotas.Zona + registroNotas.NotaAlumno;
+                    break;
+            }
+
+            //Agrega el registro de notas
+            ListaRegistroNotas.Add(registroNotas);
         }
 
-        // Método para eliminar registro de notas
+        //Metodo para eliminar registro de notas
         public void EliminarRegistroNotas(RegistroNotas registroNotas)
         {
             ListaRegistroNotas.Remove(registroNotas);
         }
 
-        // Método para modificar registro de notas
+        //Metodo para modificar registro de notas
         public void ModificarRegistroNotas(int indice, RegistroNotas registroNotas)
         {
             ListaRegistroNotas[indice] = registroNotas;
         }
 
-        // Método para mostrar registro de notas
+        //Metodo para mostrar registro de notas
         public List<RegistroNotas> MostrarRegistroNotas()
         {
             return ListaRegistroNotas;
         }
-
-        // Método para buscar registro de notas
-        public List<RegistroNotas> BuscarRegistroNotas(string buscar)
-        {
-            List<RegistroNotas> resultados = new List<RegistroNotas>();
-            foreach (RegistroNotas registroNotas in ListaRegistroNotas)
-            {
-                if (registroNotas.IdNota.ToString().Contains(buscar))
-                {
-                    resultados.Add(registroNotas);
-                }
-            }
-            return resultados;
-        }
     }
-}
+    }

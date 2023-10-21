@@ -12,8 +12,8 @@ namespace Backend
         public DateTime FechaBoleta { get; set; }
         public Estudiante estudiante { get; set; }
         public List<Estudiante> estudiantes { get; set; }
-        public Asignacion asignacion { get; set; }
-        public List<Asignacion> asignaciones { get; set; }
+        public AsignacionEstudiante asignacion { get; set; }
+        public List<AsignacionEstudiante> asignaciones { get; set; }
         public Ciclo ciclo { get; set; }
         public List<Ciclo> ciclos { get; set; }
         public Curso curso { get; set; }
@@ -22,12 +22,13 @@ namespace Backend
         public List<string> tipoDeNotas { get; set; }
         public List<RegistroNotas> notas { get; set; }
         
+        //Metodo Constructor
         public ReporteBoletaCalifaciones(int idBoletaCalificaciones, DateTime fechaBoleta)
         {
             IdBoletaCalificaciones = idBoletaCalificaciones;
             FechaBoleta = fechaBoleta;
             estudiantes = new List<Estudiante>();
-            asignaciones = new List<Asignacion>();
+            asignaciones = new List<AsignacionEstudiante>();
             ciclos = new List<Ciclo>();
             cursos = new List<Curso>();
             tipoDeNotas = new List<string>();
@@ -35,34 +36,38 @@ namespace Backend
         }
 
         public List<ReporteBoletaCalifaciones> listaReporteBoletaCalifaciones = new List<ReporteBoletaCalifaciones>();
-
+        //Metodo para agregar Calificaciones
         public void AgregarReporteBoletaCalifaciones(ReporteBoletaCalifaciones reporteBoletaCalifaciones)
         {
             listaReporteBoletaCalifaciones.Add(reporteBoletaCalifaciones);
         }
+        //Metodo para eliminar Calificaciones
         public void EliminarReporteBoletaCalifaciones(ReporteBoletaCalifaciones reporteBoletaCalifaciones)
         {
             listaReporteBoletaCalifaciones.Remove(reporteBoletaCalifaciones);
         }
+        //Metodo para modificar Calificaciones
         public void ModificarReporteBoletaCalifaciones(int indice, ReporteBoletaCalifaciones reporteBoletaCalifaciones)
         {
             listaReporteBoletaCalifaciones[indice] = reporteBoletaCalifaciones;
         }
+        //Metodo para mostrar Calificaciones
         public List<ReporteBoletaCalifaciones> MostrarReporteBoletaCalifaciones()
         {
             return listaReporteBoletaCalifaciones;
         }
-        public List<ReporteBoletaCalifaciones> BuscarReporteBoletaCalifaciones(string buscar)
+        //Método para obotener Calificaciones
+        public List<ReporteBoletaCalifaciones> ObtenerBoletaCalificaciones(int idBoletaCalificaciones)
         {
-            List<ReporteBoletaCalifaciones> listaReporteBoletaCalifaciones = new List<ReporteBoletaCalifaciones>();
-            foreach (ReporteBoletaCalifaciones reporteBoletaCalifaciones in listaReporteBoletaCalifaciones)
+            List<ReporteBoletaCalifaciones> listaBoletaCalificaciones = new List<ReporteBoletaCalifaciones>();
+            foreach (var item in listaReporteBoletaCalifaciones)
             {
-                if (reporteBoletaCalifaciones.IdBoletaCalificaciones.ToString().Contains(buscar))
+                if (item.IdBoletaCalificaciones == idBoletaCalificaciones)
                 {
-                    listaReporteBoletaCalifaciones.Add(reporteBoletaCalifaciones);
+                    listaBoletaCalificaciones.Add(item);
                 }
             }
-            return listaReporteBoletaCalifaciones;
+            return listaBoletaCalificaciones;
         }
     }
 }
