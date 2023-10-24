@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Backend
 {
-    internal class AsignacionDocente
+    public class AsignacionDocente
     {
             public int IdAsignacionDocente { get; set; }
             public Docente IdDocente { get; set; }

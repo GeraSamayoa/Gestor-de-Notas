@@ -9,11 +9,11 @@ namespace Backend
     public class Docente:Persona
     {
         public int IdDocente {  get; set; }
-        //Tomar en cuenta :D
+        //
         public AsignacionDocente IdAsignacionDocente { get; set; }
-        public char Estatus 
+        public char Estatus { get; set; }
 
-        public Docente(int idDocente, char estatus)
+        public Docente(int idDocente, char estatus, int idpersona, string nombre, string apellido, DateTime fechanacimiento, string genero)
             :base(idpersona, nombre, apellido, fechanacimiento, genero) {
             this.IdDocente = idDocente;
             this.Estatus = estatus;
