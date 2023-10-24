@@ -8,12 +8,27 @@ namespace Backend
 {
     public class Seccion
     {
-        public int IdSeccion {  get; set; }
-        public char Estatus {  get; set; }
+        public int IdSeccion { get; set; }
+        public char Tipo { get; set; }
+        public Curso idCurso { get; set; }
+        public Ciclo idCiclo { get; set; }
+        //public char Estatus { get; set; }
 
-        public Seccion(int IdSeccion, char Estatus) { 
+        public Seccion(int IdSeccion, char Tipo)
+        {
             this.IdSeccion = IdSeccion;
-            this.Estatus = Estatus;
+            this.Tipo = Tipo;
+        }
+        public List<Seccion> listaSeccion = new List<Seccion>();
+        //Metodo para agregar Seccion
+        public void AgregarSeccion(Seccion seccion)
+        {
+            listaSeccion.Add(seccion);
+        }
+        //Metodo para eliminar Seccion
+        public void EliminarSeccion(Seccion seccion)
+        {
+            listaSeccion.Remove(seccion);
         }
     }
 }

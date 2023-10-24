@@ -1,4 +1,4 @@
-﻿using System;
+﻿wusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,23 +8,33 @@ namespace Backend
 {
     public class Estudiante:Persona
     {
-       public int NumeroCarne {  get; set; }
-       public char Estatus {  get; set; }
+       public int NoCarne {  get; set; }
+        //Tomar en cuenta :D
+       public AsignacionEstudiante IdAsignacionEstudiante {  get; set; }
+        public char Estatus {  get; set; }
        public DateTime FehcaIngreso { get; set; }
+       public string Contrasenia { get; set; }
 
-       public DateTime FechaEgreso { get; set; }
-
-       public string NombreCarrera { get; set; }
-
-       public Estudiante(int numerocarne, char estatus, DateTime fechaingreso, DateTime fechaegreso, string nombrecarrera, int identificacion, string nombre, string apellido, DateTime fechanacimiento)
-            :base(identificacion, nombre, apellido, fechanacimiento) { 
-            this.NombreCarrera = nombrecarrera;
+       public Estudiante(int nocarne, char estatus, DateTime fechaingreso, string contrasenia)
+            :base(idpersona, nombre, apellido, fechanacimiento, genero) { 
+            this.NoCarne = nocarne;
             this.Estatus = estatus;
             this.FehcaIngreso = fechaingreso;
-            this.FechaEgreso = fechaegreso;
-            this.NombreCarrera = nombrecarrera;
+            this.Contrasenia = contrasenia;
 
         }
- 
+
+        public List<Estudiante> listaEstudiante = new List<Estudiante>();
+
+        public void AgregarEstudiante(Estudiante estudiante)
+        {
+            listaEstudiante.Add(estudiante);
+        }
+
+        public void EliminarEstudiante(Estudiante estudiante)
+        {
+            listaEstudiante.Remove(estudiante);
+        }
+
     }
 }
