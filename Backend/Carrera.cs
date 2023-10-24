@@ -14,33 +14,31 @@ namespace Backend
 
         public int idCiclo { get; set; }
 
-        public idJornada { get; set;}
-
         public bool status { get; set; }
 
-    public Carrera(string idcarrera, string namecarrera, int idciclo, TimeSpan idjornada)
-    {
-        this.idCarrera = idcarrera;
-        this.NameCarrera = namecarrera;
-        this.idCiclo = idciclo;
-        this.idJornada = new TimeSpan();
-        this.status = true;
-    }
-    public List<Carrera> CarreraList;
+        public Carrera(string idcarrera, string namecarrera, int idciclo, TimeSpan idjornada)
+        {
+            this.idCarrera = idcarrera;
+            this.NameCarrera = namecarrera;
+            this.idCiclo = idciclo;
+            this.status = true;
+        }
+        public List<Carrera> CarreraList;
 
-    public void RepositorioCarrera()
-    {
-        CarreraList = new List<Carrera>();
-    }
+        public void RepositorioCarrera()
+        {
+            CarreraList = new List<Carrera>();
+        }
 
-    public void AgregarCarrera(Carrera carrera)
-    {
-        CarreraList.Add(carrera);
-    }
+        public void AgregarCarrera(Carrera carrera)
+        {
+            CarreraList.Add(carrera);
+        }
 
-    public void EliminarCarrera(Carrea carrera)
-    {
-        CarreraList.Remove(carrera);
+        public void EliminarCarrera(Carrera carrera)
+        {
+            CarreraList.Remove(carrera);
+        }
     }
 }
 
