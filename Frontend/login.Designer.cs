@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.buttonRegDocente = new System.Windows.Forms.Button();
             this.buttonRegEstudiante = new System.Windows.Forms.Button();
             this.buttonAdmin = new System.Windows.Forms.Button();
@@ -37,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSiguiente = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonRegDocente
@@ -108,6 +111,8 @@
             // 
             // textUsuario
             // 
+            this.textUsuario.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textUsuario.Location = new System.Drawing.Point(252, 189);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(413, 20);
@@ -115,6 +120,8 @@
             // 
             // textPassword
             // 
+            this.textPassword.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textPassword.Location = new System.Drawing.Point(252, 253);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(413, 20);
@@ -161,12 +168,24 @@
             this.buttonSiguiente.UseVisualStyleBackColor = false;
             this.buttonSiguiente.Click += new System.EventHandler(this.button4_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(688, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonSiguiente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,6 +198,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Name = "login";
             this.Text = "login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +215,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonSiguiente;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
